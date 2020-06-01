@@ -9,7 +9,7 @@ import (
 func init() {
 	s := g.Server()
 	ctlPost := new(post.Controller)
-	s.Group("/ece", func(group *ghttp.RouterGroup) {
-		group.ALL("/index", ctlPost)
+	s.Group("/api", func(group *ghttp.RouterGroup) {
+		group.ALL("/", ctlPost)
 	})
 }

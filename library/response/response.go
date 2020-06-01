@@ -5,14 +5,14 @@ import (
 )
 
 type PageRequest struct {
-	PageNum  int
-	PageSize int
+	Current int `json:"current"`
+	Size    int `json:"size"`
 }
 
 type PageResult struct {
 	PageRequest
-	Total int
-	List  interface{}
+	Total   int         `json:"total"`
+	Records interface{} `json:"records"`
 }
 
 // 数据返回通用JSON数据结构
@@ -28,7 +28,7 @@ func Json(r *ghttp.Request, code int, message string, data ...interface{}) {
 	if len(data) > 0 {
 		responseData = data[0]
 	}
-	r.Response.WriteJson(JsonResponse{
+	_ = r.Response.WriteJson(JsonResponse{
 		Code:    code,
 		Message: message,
 		Data:    responseData,
@@ -39,4 +39,24 @@ func Json(r *ghttp.Request, code int, message string, data ...interface{}) {
 func JsonExit(r *ghttp.Request, err int, msg string, data ...interface{}) {
 	Json(r, err, msg, data...)
 	r.Exit()
+}
+
+// 返回JSON数据并退出当前HTTP执行函数。
+func Ok(r *ghttp.Request, data ...interface{}) {
+	OkMsg(r, "success", data...)
+}
+
+// 返回JSON数据并退出当前HTTP执行函数。
+func OkMsg(r *ghttp.Request, msg string, data ...interface{}) {
+	JsonExit(r, 200, msg, data...)
+}
+
+// 返回JSON数据并退出当前HTTP执行函数。
+func Error(r *ghttp.Request, data ...interface{}) {
+	ErrorMsg(r, "fail", data...)
+}
+
+// 返回JSON数据并退出当前HTTP执行函数。
+func ErrorMsg(r *ghttp.Request, msg string, data ...interface{}) {
+	JsonExit(r, -1, msg, data...)
 }

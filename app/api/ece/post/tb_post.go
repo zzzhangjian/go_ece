@@ -11,15 +11,15 @@ import (
 type Controller struct{}
 
 // 首页新闻接口
-func (c *Controller) Index(r *ghttp.Request) {
+func (c *Controller) News(r *ghttp.Request) {
 	var data *tb_posts.PostPageRequest
 	if err := r.Parse(&data); err != nil {
 		response.JsonExit(r, 1, err.Error())
 	}
 	result := post.QueryPage(data)
 	if result != nil {
-		response.JsonExit(r, 1, "fail", result)
+		response.Ok(r, result)
 	} else {
-		response.JsonExit(r, 0, "ok", result)
+		response.Error(r, result)
 	}
 }

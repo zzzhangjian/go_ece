@@ -19,33 +19,33 @@
 
 # Database.
 #gf gen model
-#[database]
-#    link  = "mysql:root:root@tcp(127.0.0.1:3306)/npie_db"
-#        debug = true
-#        # Database logger.
-#        [database.logger]
-#            Path   = "/tmp/log/gf-app/sql/npie"
-#            Level  = "all"
-#            Stdout = true
 [database]
-    [[database.default]]
-        link  = "mysql:root:root@tcp(127.0.0.1:3306)/smit_cloud_ece"
-            debug = true
-            # Database logger.
-            [database.logger]
-                Path   = "/tmp/log/gf-app/sql/ece"
-                Level  = "all"
-                Stdout = true
-    [[database.user]]
-        link  = "mysql:root:root@tcp(127.0.0.1:3306)/npie_db"
-                    debug = true
-                    # Database logger.
-                    [database.logger]
-                        Path   = "/tmp/log/gf-app/sql/npie"
-                        Level  = "all"
-                        Stdout = true
+    link  = "mysql:root:root@tcp(127.0.0.1:3306)/smit_cloud_ece"
+        debug = true
+        # Database logger.
+        [database.logger]
+            Path   = "/tmp/log/gf-app/sql/npie"
+            Level  = "all"
+            Stdout = true
+#[database]
+#    [[database.default]]
+#        link  = "mysql:root:root@tcp(127.0.0.1:3306)/smit_cloud_ece"
+#            debug = true
+#            # Database logger.
+#            [database.logger]
+#                Path   = "/tmp/log/gf-app/sql/ece"
+#                Level  = "all"
+#                Stdout = true
+#    [[database.user]]
+#        link  = "mysql:root:root@tcp(127.0.0.1:3306)/npie_db"
+#                    debug = true
+#                    # Database logger.
+#                    [database.logger]
+#                        Path   = "/tmp/log/gf-app/sql/npie"
+#                        Level  = "all"
+#                        Stdout = true
 # Redis数据库配置
-[redis]
-    default   = "127.0.0.1:6379,0,gs1321ed4?idleTimeout=600"
+#[redis]
+#    default   = "127.0.0.1:6379,0,gs1321ed4?idleTimeout=600"
 
 

@@ -11,7 +11,7 @@ import (
 
 type PostPageRequest struct {
 	response.PageRequest
-	Type Type
+	Type Type `json:"type"`
 }
 
 type Type string
@@ -26,20 +26,20 @@ const (
 // 分页查询
 func Page(request PostPageRequest) (*response.PageResult, error) {
 	condition := &g.Map{
-		"post_type": request.Type,
+		"post_type": string(request.Type),
 	}
 	total, err := Model.Where(condition).Count()
 	if err != nil {
 		return nil, err
 	}
-	list, err := Model.Where(condition).Limit(request.PageSize).Offset((request.PageNum - 1) * request.PageSize).FindAll()
+	records, err := Model.Where(condition).Limit(request.Size).Offset((request.Current - 1) * request.Size).Order("id desc").FindAll()
 	if err != nil {
 		return nil, err
 	}
 	result := &response.PageResult{
 		PageRequest: request.PageRequest,
 		Total:       total,
-		List:        list,
+		Records:     records,
 	}
 	return result, err
 }

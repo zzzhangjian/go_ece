@@ -8,7 +8,8 @@ import (
 
 func init() {
 	s := g.Server()
-	s.Group("/", func(group *ghttp.RouterGroup) {
-		group.ALL("/ece", post.Index)
+	ctlPost := new(post.Controller)
+	s.Group("/ece", func(group *ghttp.RouterGroup) {
+		group.ALL("/index", ctlPost)
 	})
 }

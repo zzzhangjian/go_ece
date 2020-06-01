@@ -1,0 +1,46 @@
+# HTTP Server
+[server]
+	Address     = ":8199"
+	ServerRoot  = "public"
+	ServerAgent = "gf-app"
+	LogPath     = "/tmp/log/gf-app/server"
+
+# Logger.
+[logger]
+    Path        = "/tmp/log/gf-app"
+    Level       = "all"
+    Stdout      = true
+
+# Template.
+[viewer]
+    Path        = "template"
+    DefaultFile = "index.html"
+    Delimiters  =  ["${", "}"]
+
+# Database.
+#gf gen model
+#[database]
+#    link  = "mysql:root:root@tcp(127.0.0.1:3306)/npie_db"
+#        debug = true
+#        # Database logger.
+#        [database.logger]
+#            Path   = "/tmp/log/gf-app/sql/npie"
+#            Level  = "all"
+#            Stdout = true
+[database]
+    [[database.default]]
+        link  = "mysql:root:root@tcp(127.0.0.1:3306)/smit_cloud_ece"
+            debug = true
+            # Database logger.
+            [database.logger]
+                Path   = "/tmp/log/gf-app/sql/ece"
+                Level  = "all"
+                Stdout = true
+    [[database.user]]
+        link  = "mysql:root:root@tcp(127.0.0.1:3306)/npie_db"
+                    debug = true
+                    # Database logger.
+                    [database.logger]
+                        Path   = "/tmp/log/gf-app/sql/npie"
+                        Level  = "all"
+                        Stdout = true

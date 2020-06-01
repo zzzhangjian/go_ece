@@ -2,8 +2,8 @@ package post
 
 import (
 	"github.com/gogf/gf/net/ghttp"
-	"github.com/zzzhangjian/go_ece/app/ece/service"
 	"github.com/zzzhangjian/go_ece/app/model/tb_posts"
+	"github.com/zzzhangjian/go_ece/app/service/ece/post"
 	"github.com/zzzhangjian/go_ece/library/response"
 )
 

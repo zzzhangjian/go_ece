@@ -1,4 +1,4 @@
-package api
+package currency
 
 import (
 	"github.com/gogf/gf/net/ghttp"

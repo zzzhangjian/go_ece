@@ -3,5 +3,3 @@
 // ============================================================================
 
 package exchange_currency
-
-// Fill with you ideas below.

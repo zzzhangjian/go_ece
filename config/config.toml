@@ -44,3 +44,8 @@
                         Path   = "/tmp/log/gf-app/sql/npie"
                         Level  = "all"
                         Stdout = true
+# Redis数据库配置
+[redis]
+    default   = "127.0.0.1:6379,0,gs1321ed4?idleTimeout=600"
+
+

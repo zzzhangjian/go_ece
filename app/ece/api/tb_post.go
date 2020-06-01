@@ -1,7 +1,7 @@
 package post
 
 import (
-	"git.irss.cn/zhang/smit_cloud_ece/app/ece/service/post"
+	"git.irss.cn/zhang/smit_cloud_ece/app/ece/service"
 	"git.irss.cn/zhang/smit_cloud_ece/library/response"
 	"github.com/gogf/gf/net/ghttp"
 )

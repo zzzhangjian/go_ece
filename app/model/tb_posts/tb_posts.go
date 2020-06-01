@@ -5,13 +5,13 @@
 package tb_posts
 
 import (
+	"git.irss.cn/zhang/smit_cloud_ece/app/ece/service"
 	"github.com/gogf/gf/frame/g"
-	"smit_cloud_ece/app/ece/service"
 )
 
 // Fill with you ideas below.
 // 分页查询
-func Page(request service.PostPageRequest) (*service.PageResult, error) {
+func Page(request post.PostPageRequest) (*post.PageResult, error) {
 	condition := &g.Map{
 		"post_type": request.Type,
 	}
@@ -23,7 +23,7 @@ func Page(request service.PostPageRequest) (*service.PageResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	result := &service.PageResult{
+	result := &post.PageResult{
 		PageRequest: request.PageRequest,
 		Total:       total,
 		List:        list,

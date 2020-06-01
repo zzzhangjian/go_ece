@@ -5,13 +5,26 @@
 package tb_posts
 
 import (
-	"git.irss.cn/zhang/smit_cloud_ece/app/ece/service"
 	"github.com/gogf/gf/frame/g"
+	"github.com/zzzhangjian/go_ece/library/response"
+)
+
+type PostPageRequest struct {
+	response.PageRequest
+	Type Type
+}
+
+type Type string
+
+const (
+	AD     Type = "AD"
+	Banner Type = "BANNER"
+	Notice Type = "NOTICE"
 )
 
 // Fill with you ideas below.
 // 分页查询
-func Page(request post.PostPageRequest) (*post.PageResult, error) {
+func Page(request PostPageRequest) (*response.PageResult, error) {
 	condition := &g.Map{
 		"post_type": request.Type,
 	}
@@ -23,7 +36,7 @@ func Page(request post.PostPageRequest) (*post.PageResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	result := &post.PageResult{
+	result := &response.PageResult{
 		PageRequest: request.PageRequest,
 		Total:       total,
 		List:        list,

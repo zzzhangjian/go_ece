@@ -4,6 +4,17 @@ import (
 	"github.com/gogf/gf/net/ghttp"
 )
 
+type PageRequest struct {
+	PageNum  int
+	PageSize int
+}
+
+type PageResult struct {
+	PageRequest
+	Total int
+	List  interface{}
+}
+
 // 数据返回通用JSON数据结构
 type JsonResponse struct {
 	Code    int         `json:"code"`    // 错误码((0:成功, 1:失败, >1:错误码))

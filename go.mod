@@ -1,4 +1,4 @@
-module git.irss.cn/zhang/smit_cloud_ece
+module github.com/zzzhangjian/go_ece
 
 require github.com/gogf/gf v1.13.0
 
